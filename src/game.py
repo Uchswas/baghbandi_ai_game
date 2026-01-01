@@ -228,5 +228,3 @@ class Game:
                                      self.message)
                 pygame.display.flip()  # Update the display
                 self.needs_update = False  # Reset the update flag
-
-        #pygame.quit()

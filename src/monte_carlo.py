@@ -174,10 +174,6 @@ class State:
             if self.is_capture_blocked_by_tiger(goat):
                 score += 20  # Increase the reward to reflect the strategic importance of protection.
 
-            #  Goat in boundary spaces
-            #if goat in boundary:
-            #    score += 1
-
             # Reward for goats that are protected by another goat.
             if self.has_protective_neighbor(goat):
                 score += 10  # Increase the reward to reflect the strategic importance of protection.

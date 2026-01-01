@@ -195,19 +195,10 @@ class State:
 
     def get_result(self):
         """ Evaluate the game state from the goats' perspective, prioritizing safety. """
-        # if not self.goats:
-        #     return -1  # All goats are captured, tigers win
-
         score = 0
         for goat in self.goats:
             if self.is_adjacent_to_tiger(goat):
                 score -= 10  # Penalize positions where goats are next to tigers
-
-        # Tigers' movement evaluation
-        # for tiger in self.tigers:
-        #     for direction in [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]:
-        #         if self.can_move(tiger, direction):
-        #             score += 3  # Game continues, evaluate based on tiger mobility
 
         return score
 

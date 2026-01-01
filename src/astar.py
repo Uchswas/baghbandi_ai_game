@@ -6,10 +6,6 @@ from constants import BOARD_SIZE
 
 
 class ASTAR:
-    # def determine_goat_move(board, tigers, goats, empty_positions):
-    #         new_goat_position = random.choice(empty_positions)
-    #         return new_goat_position
-
     def __init__(self, board):
         self.board = board
 
@@ -28,7 +24,6 @@ class ASTAR:
         return adjacent_empty_space
 
     def determine_goat_move(self, tigers, goats, empty_positions, remaining_goat_number):
-        # print("tigers", tigers, "goats", goats, "empty positions,", empty_positions)
         remaining_goats = remaining_goat_number
         count_goats = 0
         print(remaining_goats)
@@ -51,13 +46,8 @@ class ASTAR:
                                     (1, 4),
                                     (3, 4)}
             starting_slot = [2, 2]
-            # print("goats", goats)
-            # print("empty positions", empty_positions)
             legal_moves = []
             list_of_heuristic = []
-            # count_goats = 0
-            # print("check kori", count_goats)
-            # legal_moves.append((slot, (nx, ny)))
             for slot in empty_positions:
                 notiger = True
                 oppos_goat = True
@@ -82,11 +72,6 @@ class ASTAR:
                 # it is really bad, since the tiger can go over the goat and capture it. So, assigning a negative heuristic value of -100.
                 if oppos_goat == False:
                     a = [-100, goats[0], slot]
-                    # list_of_heuristic.append([-100, goats[0], slot])
-                    # if a[0] == -100:
-                    #     if (count_goats <=16 or remaining_goats > 0):
-                    #         list_of_heuristic.append([-100, None, slot])
-                    #         count_goats += 1
                     list_of_heuristic.append([-100, goats[0], slot])
                 else:
                     # Assigning heuristic value over here to see if any adjacent side has no tiger, irrespective of having or not having goats in adjacent sides.
@@ -95,29 +80,15 @@ class ASTAR:
                     print("count ki barse naki", count_goats)
                     a = [100, goats[0], slot]
 
-                    # Please fix the counting here. I wanted to do something like, if the total placement of goats has already been 16, then, it will no longer place a new goat,
-                    # and simply move the existing goats around. But it's not working.
                     if count_goats <= 15:
                         list_of_heuristic.append([100, None, slot])
                         count_goats += 1
                     else:
                         list_of_heuristic.append([100, goats[0], slot])
                         break
-                    # print("current kotogula goat boashaisi", count_goats)
-                    # list_of_heuristic.append([100, goats[0], slot])
-
-                    # if (nx, ny) not in tigers and (nx, ny) not in goats:
-                    #     legal_moves.append((slot, (nx, ny)))
-                    #     heuristic = self.calculate_heuristic(slot, (nx, ny), goats, tigers)
-                    #     list_of_heuristic.append(heuristic)
-                    # print("ekhon kar position er jonno", list_of_heuristic)
-
-            # print(legal_moves)
-            # print(list_of_heuristic)
 
             # Over here, from the list of heuristics for a particular slot, we pick the highest one, and return the corresponding old and new positions for that heuristic
             for i in list_of_heuristic:
                 if i[0] == 100:
                     return [i[1], i[2]]
-            # return list_of_heuristic
 
