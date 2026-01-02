@@ -11,9 +11,9 @@
 
 Bagh Bandi is a traditional village game played in South Asia. It is an adversarial game with two sides: tigers and goats. The tigers want to kill as many goats as they can by capturing them, while the goats are trying to block the movement of tigers through strategic moves and placements.
 
-In this project, we implement the game as a human-computer play using different **AI algorithms**. The human player controls the tiger, while the computer uses AI algorithms to control the goats. This is a type of AI adversarial game, where we use different algorithms to make strategic decisions for the goat side. The algorithms are `A*`, `Monte Carlo Tree Search`, `BFS`, `DFS`, and `Random`.
+In this project, we implement the game as a human-computer play using different **AI algorithms**. The human player controls the tigers, while the computer uses AI algorithms to control the goats. This is a type of AI adversarial game, where we use different algorithms to make strategic decisions for the goat side. The algorithms are `A*`, `Monte Carlo Tree Search`, `BFS`, `DFS`, and `Random`.
 
- The game features an interactive **Pygame-based graphical interface** where players manually control the tiger by clicking and moving it, while the AI algorithms autonomously manage the goat pieces' movements and placements, creating an engaging adversarial gameplay experience.
+The game features an interactive **Pygame-based graphical interface** where players manually control the tigers by clicking and moving them, while the AI algorithms autonomously manage the goat pieces' movements and placements, creating an engaging adversarial gameplay experience.
 
 
 **A demo of our implemented Bagh-Bandi game using Monte-Carlo Tree Search Algorithm is shown below:**
@@ -43,23 +43,23 @@ Bagh Bandi (also known as "Tiger and Goats") is a traditional two-player strateg
 ### Game Components
 
 - **Board**: A 5×5 grid (25 positions) with diagonal connections
-- **Tiger**: 1 tiger controlled by the player
+- **Tigers**: 4 tigers controlled by the player, initially placed at the four corners
 - **Goats**: 25 goats controlled by AI algorithms, placed one at a time on the board
 - **Restricted Positions**: Certain positions (12 specific cells) only allow horizontal and vertical movements, not diagonal
 
 ### Objective
 
-- **Tiger Wins**: Capture enough goats (reduce remaining goats to 5 or fewer)
-- **Goats Win**: Trap the tiger so it cannot make any legal moves
+- **Tigers Win**: Capture enough goats (reduce remaining goats to 5 or fewer)
+- **Goats Win**: Trap all tigers so they cannot make any legal moves
 - **Stalemate**: Game ends after 100 moves without a winner
 
 ### Gameplay Flow
 
-1. **Initial Setup**: One tiger is placed on the board
+1. **Initial Setup**: Four tigers are placed at the board corners `(0,0)`, `(0,4)`, `(4,0)`, `(4,4)`
 2. **Goat Placement Phase**: Goats are placed one at a time on empty positions (up to 25 goats)
 3. **Movement Phase**: Once goats are on the board, they can move to adjacent empty positions
-4. **Tiger Moves**: Player clicks on the tiger, then clicks on a destination to move or capture
-5. **Capture Mechanism**: The tiger captures goats by jumping over them (like checkers)
+4. **Tiger Moves**: Player clicks on a tiger, then clicks on a destination to move or capture
+5. **Capture Mechanism**: Tigers capture goats by jumping over them (like checkers)
 6. **Game End**: Continues until win condition is met or stalemate occurs
 
 > Here is a demonstration of the Bagh Bandi game: [YouTube Video](https://www.youtube.com/watch?v=2y6AImREUbs)
@@ -70,7 +70,7 @@ Bagh Bandi (also known as "Tiger and Goats") is a traditional two-player strateg
 - 🤖 **Multiple AI Algorithms**: Five different AI strategies for goat gameplay
 - 📊 **Game Statistics**: Real-time display of remaining goats, goats on board, and move count
 - 🎯 **Strategic Gameplay**: Implements game rules including restricted positions and capture mechanics
-- 🔄 **Turn-based System**: Alternating turns between player (tiger) and AI (goats)
+- 🔄 **Turn-based System**: Alternating turns between player (tigers) and AI (goats)
 
 
 
@@ -137,7 +137,7 @@ python3 main.py bfs
 ### How to Play
 
 1. **Start the game** with your chosen algorithm
-2. **Click on the tiger** to select it (the tiger will be highlighted)
+2. **Click on a tiger** to select it (the tiger will be highlighted)
 3. **Click on a destination** to move the tiger:
    - **Normal Move**: Move to an adjacent empty position
    - **Capture Move**: Jump over a goat to capture it (destination must be empty)
@@ -146,7 +146,7 @@ python3 main.py bfs
 
 ### Game Controls
 
-- **Mouse Click**: Select and move the tiger
+- **Mouse Click**: Select and move tigers
 - **Close Window**: Exit the game
 
 ## AI Algorithms
@@ -215,3 +215,5 @@ This project was developed by:
 **Course**: CSC-520 Artificial Intelligence  
 **Institution**: North Carolina State University  
 **Semester**: Spring 2024
+
+
